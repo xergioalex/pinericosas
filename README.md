@@ -1,6 +1,6 @@
 # Pinericosas
 
-Just a "Hello World" library :)
+Just a "Hello World" library based on this medium entry: https://medium.com/@muzk/11ff8c1c699f
 
 ---
 

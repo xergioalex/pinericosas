@@ -1,10 +1,11 @@
 {
   "name": "pinericosas-xergioalex",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Get a random \\\"piñericosa\\\"",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,8 @@
   "homepage": "https://github.com/xergioalex/pinericosas#readme",
   "dependencies": {
     "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "standard-version": "^5.0.2"
   }
 }
