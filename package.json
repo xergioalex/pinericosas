@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/xergioalex/pinericosas/issues"
   },
-  "homepage": "https://github.com/xergioalex/pinericosas#readme"
+  "homepage": "https://github.com/xergioalex/pinericosas#readme",
+  "dependencies": {}
 }
