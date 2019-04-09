@@ -15,8 +15,8 @@ npm install pinericosas --save
 
 ```javascript
 
-const pinericosas = require('pinericosas-xergioalex');
+const pinericosas = require('pinericosas-xergioalex')
 
-const quote = pinericosas.randomQuote();
+const quote = pinericosas.randomQuote()
 
 ```
