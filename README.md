@@ -1,6 +1,6 @@
 # Pinericosas XergioAleX
 
-Just a "Hello World" library based on this medium entry: https://medium.com/@muzk/11ff8c1c699f
+Just a "Hello World" library based on this medium entry: https://medium.com/@muzk/11ff8c1c699f :D
 
 ---
 
