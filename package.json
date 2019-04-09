@@ -1,6 +1,6 @@
 {
   "name": "pinericosas-xergioalex",
-  "version": "0.4.9",
+  "version": "0.4.10",
   "description": "Get a random piñericosa",
   "main": "index.js",
   "scripts": {

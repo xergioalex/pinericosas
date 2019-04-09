@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.10](https://github.com/xergioalex/pinericosas/compare/v0.4.8...v0.4.10) (2019-04-09)
+
+
+### Bug Fixes
+
+* package updated ([52b0cce](https://github.com/xergioalex/pinericosas/commit/52b0cce))
+
+
+
 ## [0.4.8](https://github.com/xergioalex/pinericosas/compare/v0.4.1...v0.4.8) (2019-04-09)
 
 
