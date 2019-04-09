@@ -1,6 +1,6 @@
 {
   "name": "pinericosas-xergioalex",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Get a random \\\"piñericosa\\\"",
   "main": "index.js",
   "scripts": {
@@ -16,5 +16,7 @@
     "url": "https://github.com/xergioalex/pinericosas/issues"
   },
   "homepage": "https://github.com/xergioalex/pinericosas#readme",
-  "dependencies": {}
+  "dependencies": {
+    "lodash": "^4.17.11"
+  }
 }
