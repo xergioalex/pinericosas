@@ -21,8 +21,7 @@
     "dev": "nodemon src/index.ts",
     "build": "webpack --mode production --progress",
     "build:dev": "webpack --mode development --progress",
-    "build:tsc": "tsc --build tsconfig.json",
-    "prepare": "npm run build"
+    "build:tsc": "tsc --build tsconfig.json"
   },
   "repository": {
     "type": "git",
