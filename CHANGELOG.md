@@ -1,53 +1,105 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [0.4.12](https://github.com/xergioalex/pinericosas/compare/v0.4.11...v0.4.12) (2019-04-09)
+### [0.5.45](https://github.com/rockalabs/universal-emoji-parser/compare/v0.4.12...v0.5.45) (2022-06-07)
 
+### [0.5.28](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.27...v0.5.28) (2020-08-05)
 
-### Bug Fixes
+### [0.5.27](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.26...v0.5.27) (2020-08-05)
 
-* dummy changes ([3518def](https://github.com/xergioalex/pinericosas/commit/3518def))
+### [0.5.26](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.25...v0.5.26) (2020-08-05)
 
+### [0.5.25](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.24...v0.5.25) (2020-08-05)
 
+### [0.5.24](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.23...v0.5.24) (2020-08-05)
 
-## [0.4.11](https://github.com/xergioalex/pinericosas/compare/v0.4.10...v0.4.11) (2019-04-09)
+### [0.5.23](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.22...v0.5.23) (2019-09-10)
 
+### [0.5.22](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.21...v0.5.22) (2019-09-10)
 
-### Bug Fixes
+### [0.5.21](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.20...v0.5.21) (2019-09-10)
 
-* travis config changes ([3894e16](https://github.com/xergioalex/pinericosas/commit/3894e16))
-
-
-
-## [0.4.10](https://github.com/xergioalex/pinericosas/compare/v0.4.8...v0.4.10) (2019-04-09)
-
-
-### Bug Fixes
-
-* package updated ([52b0cce](https://github.com/xergioalex/pinericosas/commit/52b0cce))
+### [0.5.20](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.19...v0.5.20) (2019-09-10)
 
 
 
-## [0.4.8](https://github.com/xergioalex/pinericosas/compare/v0.4.1...v0.4.8) (2019-04-09)
+### [0.5.19](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.18...v0.5.19) (2019-07-23)
 
 
-### Bug Fixes
+### Build System
 
-* package version updated ([480ed72](https://github.com/xergioalex/pinericosas/commit/480ed72))
-* package version updated ([e3c39df](https://github.com/xergioalex/pinericosas/commit/e3c39df))
-* package version updated && readme ([409c9b4](https://github.com/xergioalex/pinericosas/commit/409c9b4))
-* readme updated ([fe5cbac](https://github.com/xergioalex/pinericosas/commit/fe5cbac))
-* readme updated ([0658069](https://github.com/xergioalex/pinericosas/commit/0658069))
-* travis config updated ([d2939f6](https://github.com/xergioalex/pinericosas/commit/d2939f6))
-* travis config updated ([968830d](https://github.com/xergioalex/pinericosas/commit/968830d))
-* updated README.md ([6ce8a0b](https://github.com/xergioalex/pinericosas/commit/6ce8a0b))
-* updated README.md ([9d05d44](https://github.com/xergioalex/pinericosas/commit/9d05d44))
+* **deps:** bump handlebars from 4.1.1 to 4.1.2 ([7c67e6d](https://github.com/rockalabs/universal-emoji-parser/commit/7c67e6d))
+* **deps:** bump lodash.template from 4.4.0 to 4.5.0 ([1d7e9c7](https://github.com/rockalabs/universal-emoji-parser/commit/1d7e9c7))
 
 
 
-## [0.4.1](https://github.com/xergioalex/pinericosas/compare/v0.4.0...v0.4.1) (2019-04-09)
+### [0.5.18](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.17...v0.5.18) (2019-07-23)
 
 
 
-# 0.4.0 (2019-04-09)
+### [0.5.17](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.16...v0.5.17) (2019-07-23)
+
+
+
+## [0.5.16](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.15...v0.5.16) (2019-07-23)
+
+
+
+## [0.5.15](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.14...v0.5.15) (2019-04-23)
+
+
+
+## [0.5.14](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.13...v0.5.14) (2019-04-23)
+
+
+
+## [0.5.13](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.12...v0.5.13) (2019-04-23)
+
+
+
+## [0.5.12](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.11...v0.5.12) (2019-04-23)
+
+
+
+## [0.5.11](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.10...v0.5.11) (2019-04-10)
+
+
+
+## [0.5.10](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.9...v0.5.10) (2019-04-10)
+
+
+
+## [0.5.9](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.8...v0.5.9) (2019-04-10)
+
+
+
+## [0.5.8](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.7...v0.5.8) (2019-04-10)
+
+
+
+## [0.5.7](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.6...v0.5.7) (2019-04-10)
+
+
+
+## [0.5.6](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.5...v0.5.6) (2019-04-10)
+
+
+
+## [0.5.5](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.4...v0.5.5) (2019-04-10)
+
+
+
+## [0.5.4](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.3...v0.5.4) (2019-04-10)
+
+
+
+## [0.5.3](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.2...v0.5.3) (2019-04-10)
+
+
+
+## [0.5.2](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.1...v0.5.2) (2019-04-10)
+
+
+
+## 0.5.1 (2019-04-10)

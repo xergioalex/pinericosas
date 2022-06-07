@@ -1,26 +1,57 @@
 {
   "name": "pinericosas-xergioalex",
-  "version": "0.4.12",
-  "description": "Get a random piñericosa",
-  "main": "index.js",
+  "version": "0.5.45",
+  "description": "This tool allow parse unicode and emoji codes to html images using emojilib && Twemoji CDN",
+  "keywords": [
+    "emoji",
+    "parser",
+    "transform",
+    "slack",
+    "twitter",
+    "github",
+    "emoji-parser",
+    "unicode"
+  ],
+  "main": "dist/index.js",
   "scripts": {
-    "test": "node test.js",
-    "release": "standard-version"
+    "test": "mocha --require ts-node/register test/**.ts --timeout 25000 --colors",
+    "test:watch": "mocha -w --watch-extensions ts --require ts-node/register --watch-files src,test test/**.ts --timeout 25000 --colors",
+    "release": "standard-version",
+    "start": "node dist/index.js",
+    "dev": "nodemon src/index.ts",
+    "build": "webpack --mode production --progress",
+    "build:dev": "webpack --mode development --progress",
+    "build:tsc": "tsc --build tsconfig.json",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xergioalex/pinericosas.git"
+    "url": "git+https://github.com/rockalabs/universal-emoji-parser.git"
   },
   "author": "@xergioalex",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xergioalex/pinericosas/issues"
+    "url": "https://github.com/rockalabs/universal-emoji-parser/issues"
   },
-  "homepage": "https://github.com/xergioalex/pinericosas#readme",
+  "homepage": "https://github.com/rockalabs/universal-emoji-parser#readme",
   "dependencies": {
-    "lodash": "^4.17.11"
+    "twemoji": "14.0.2"
   },
   "devDependencies": {
-    "standard-version": "^5.0.2"
+    "emojilib": "3.0.6",
+    "unicode-emoji-json": "0.3.1",
+    "@types/node": "17.0.40",
+    "mocha": "10.0.0",
+    "@types/mocha": "9.1.1",
+    "nodemon": "2.0.16 ",
+    "ts-node": "10.8.1",
+    "typescript": "4.7.3",
+    "standard-version": "9.5.0",
+    "chai": "4.3.6",
+    "@types/chai": "4.3.1",
+    "webpack": "5.73.0",
+    "webpack-cli": "4.9.2",
+    "ts-loader": "9.3.0",
+    "clean-webpack-plugin": "4.0.0"
   }
 }
