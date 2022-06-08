@@ -29,4 +29,6 @@ jobs:
           git config user.name "Sergio Alexander Florez Galeano"
           git config user.email "xergioalex@gmail.com"
       - name: Prepare Release
-        run: npm run release
+        run: |
+          npm run release
+          git push --follow-tags origin master
