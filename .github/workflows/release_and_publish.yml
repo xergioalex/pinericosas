@@ -29,24 +29,19 @@ jobs:
           git config user.name "🤖 DailyBot"
           git config user.email "ops@dailybot.com"
       - name: Step 6 - Prepare Release
-        uses: google-github-actions/release-please-action@v3
+        run: |
+          git status
+          git add .
+          git commit -am "[🤖 DailyBot] Minor updates on package versions." || echo "[🤖 DailyBot] No changes to commit"
+          npm run release
+          git push --follow-tags origin master
+          export LAST_GITHUB_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))
+      - name: Step 7 - Publish GitHub Release
+        uses: ncipollo/release-action@v1
         with:
-          command: github-release
-          release-type: node
-          package-name: pinericosas-xergioalex
+          tag: ${{ process.env.LAST_GITHUB_TAG }}
+          body: "Release body content 1"
           token: ${{ secrets.GITHUB_TOKEN }}
-      # - name: Step 6 - Prepare Release
-      #   run: |
-      #     git status
-      #     git add .
-      #     git commit -am "[🤖 DailyBot] Minor updates on package versions." || echo "[🤖 DailyBot] No changes to commit"
-      #     npm run release
-      #     git push --follow-tags origin master
-      # - name: Step 7 - Publish GitHub Release
-      #   uses: ncipollo/release-action@v1
-      #   with:
-      #     body: "Release body content 1"
-      #     token: ${{ secrets.GITHUB_TOKEN }}
       - name: Step 8 - Publish npm package.
         run: npm publish
         env:
