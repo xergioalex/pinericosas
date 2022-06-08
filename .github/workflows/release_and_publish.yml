@@ -41,6 +41,7 @@ jobs:
           cat git_logs_output.txt
           echo "##### GIT LOGS END 2 #####"
           GITHUB_RELEASE_BODY=$(cat git_logs_output.txt)
+          echo $GITHUB_RELEASE_BODY
           echo "::set-env name=GITHUB_RELEASE_BODY::$GITHUB_RELEASE_BODY"
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
