@@ -35,7 +35,13 @@ jobs:
           git commit -am "[🤖 DailyBot] Minor updates on package versions." || echo "[🤖 DailyBot] No changes to commit"
           npm run release
           git push --follow-tags origin master
-      - name: Step 7 - Publish npm package.
+      - name: Step 7 - Publish GitHub Release
+        uses: ncipollo/release-action@v1
+          with:
+            tag: v0.5.68
+            body: "Release body content 1"
+            token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Step 8 - Publish npm package.
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
