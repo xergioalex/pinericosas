@@ -45,7 +45,7 @@ jobs:
         with:
           name: Release ${{ env.LAST_GITHUB_TAG }}
           tag: ${{ env.LAST_GITHUB_TAG }}
-          body: "${ env.GITHUB_RELEASE_BODY }"
+          body: "${{ env.GITHUB_RELEASE_BODY }}"
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Step 8 - 🚀🚀 Publish npm package
         run: npm publish
