@@ -1,6 +1,6 @@
 {
   "name": "pinericosas-xergioalex",
-  "version": "0.5.92",
+  "version": "0.5.93",
   "description": "This tool allow parse unicode and emoji codes to html images using emojilib && Twemoji CDN",
   "keywords": [
     "emoji",
