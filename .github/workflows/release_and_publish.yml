@@ -30,6 +30,9 @@ jobs:
         run: npm run build
       - name: Step 4 - 📄 Set GitHub release content "BODY" env var
         run: |
+          echo "----- GIT LOGS INIT ----"
+          git log --pretty=oneline
+          echo "----- GIT LOGS END ----"
           bash get_github_release_log.sh
           GITHUB_RELEASE_BODY=$(cat git_logs_output.txt)
           echo "::set-env name=GITHUB_RELEASE_BODY::$GITHUB_RELEASE_BODY"
