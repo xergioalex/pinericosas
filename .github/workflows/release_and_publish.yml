@@ -35,7 +35,7 @@ jobs:
           git commit -am "[🤖 DailyBot] Minor updates on package versions." || echo "[🤖 DailyBot] No changes to commit"
           npm run release
           git push --follow-tags origin master
-      - name: Step 7 - Publish npm package
+      - name: Step 7 - Publish npm package.
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
