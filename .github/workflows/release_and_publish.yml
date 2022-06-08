@@ -26,7 +26,7 @@ jobs:
         run: npm run build
       - name: Step 5 - Setup git config
         run: |
-          git config user.name "DailyBot"
+          git config user.name "🤖 DailyBot"
           git config user.email "ops@dailybot.com"
       - name: Step 6 - Prepare Release
         run: |
