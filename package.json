@@ -16,7 +16,7 @@
   "scripts": {
     "test": "mocha --require ts-node/register test/**.ts --timeout 25000 --colors",
     "test:watch": "mocha -w --watch-extensions ts --require ts-node/register --watch-files src,test test/**.ts --timeout 25000 --colors",
-    "release": "release-please",
+    "release": "npm version patch",
     "start": "node dist/index.js",
     "dev": "nodemon src/index.ts",
     "build": "webpack --mode production --progress",
@@ -45,7 +45,6 @@
     "nodemon": "2.0.16 ",
     "ts-node": "10.8.1",
     "typescript": "4.7.3",
-    "release-please": "13.18.0",
     "chai": "4.3.6",
     "@types/chai": "4.3.1",
     "webpack": "5.73.0",
