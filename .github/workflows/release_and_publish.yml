@@ -35,10 +35,11 @@ jobs:
           git commit -am "[🤖 DailyBot] Minor updates on package versions." || echo "[🤖 DailyBot] No changes to commit"
           npm run release
           git push --follow-tags origin master
+          export LAST_GITHUB_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))
       - name: Step 7 - Publish GitHub Release
         uses: ncipollo/release-action@v1
         with:
-          tag: v0.5.69
+          tag: ${LAST_GITHUB_TAG}
           body: "Release body content 1"
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Step 8 - Publish npm package.
