@@ -32,7 +32,7 @@ jobs:
         run: |
           git status
           git add .
-          git commit -am "[DailyBot] Minor updates on package versions." --allow-empty
+          git commit -am "[DailyBot] Minor updates on package versions."
           npm run release
           git push --follow-tags origin master
       - name: Step 7 - Publish npm package
