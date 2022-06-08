@@ -19,40 +19,34 @@ jobs:
         with:
           node-version: 16.x
           registry-url: https://registry.npmjs.org/
-      - name: Step 4 - 📁 Set GitHub Release Env Vars
-        run: |
-          echo "----- GIT LOGS INIT ----"
-          git log --pretty=oneline
-          echo "----- GIT LOGS END ----"
-          bash get_github_release_log.sh
-          ls -la | grep git_logs
-          echo "###### GIT LOGS INIT #####"
-          cat git_logs.txt
-          echo "###### GIT LOGS END #####"
-          GITHUB_RELEASE_BODY=$(cat git_logs_output.txt)
-          echo "---------------"
-          echo $GITHUB_RELEASE_BODY
-          echo "::set-env name=GITHUB_RELEASE_BODY::$GITHUB_RELEASE_BODY"
-          echo "::set-env name=LAST_GITHUB_TAG::$(git describe --tags $(git rev-list --tags --max-count=1))"
-        env:
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       - name: Step 1 - ⚙️ Setup application
         run: |
           git config user.name "🤖 DailyBot"
           git config user.email "ops@dailybot.com"
           npm install
-      - name: Step 2 - 🧪 Run Tests
+      - name: Step 2 - 🧪 Run tests
         run: npm run test
       - name: Step 3 - 🛠️ Build application bundle
         run: npm run build
-      - name: Step 5 -🔄 Prepare Release
+      - name: Step 4 - 📄 Set GitHub release content "BODY" env var
+        run: |
+          bash get_github_release_log.sh
+          GITHUB_RELEASE_BODY=$(cat git_logs_output.txt)
+          echo "::set-env name=GITHUB_RELEASE_BODY::$GITHUB_RELEASE_BODY"
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+      - name: Step 5 -🔄 Prepare release
         run: |
           git status
           git add .
           git commit -am "[🤖 DailyBot] Minor updates on package versions." || echo "[🤖 DailyBot] No changes to commit"
           npm run release
           git push --follow-tags origin master
-      - name: Step 6 - 🚀 Publish GitHub Release
+      - name: Step 6 - 🏷️ Set GitHub release "TAG" env vars
+        run: echo "::set-env name=GITHUB_RELEASE_TAG::$(git describe --tags $(git rev-list --tags --max-count=1))"
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+      - name: Step 7 - 🚀 Publish GitHub release
         uses: ncipollo/release-action@v1
         with:
           name: Release ${{ env.LAST_GITHUB_TAG }}
