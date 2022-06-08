@@ -13,39 +13,38 @@ jobs:
         node: ['16']
     steps:
       - uses: actions/checkout@v2
-      - name: Step 1 - Setup Node 16
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v2
         with:
           node-version: 16.x
           registry-url: https://registry.npmjs.org/
-      - name: Step 2 - Setup application
+      - name: Step 1 - ⚙️ Setup application
         run: |
           git config user.name "🤖 DailyBot"
           git config user.email "ops@dailybot.com"
           npm install
-      - name: Step 3 - Run Tests
+      - name: Step 2 - 🧪 Run Tests
         run: npm run test
-      - name: Step 4 - Build application bundle
+      - name: Step 3 - 🛠️ Build application bundle
         run: npm run build
-      - name: Step 5 - Prepare Release
+      - name: Step 4 -🔄 Prepare Release
         run: |
           git status
           git add .
           git commit -am "[🤖 DailyBot] Minor updates on package versions." || echo "[🤖 DailyBot] No changes to commit"
           npm run release
           git push --follow-tags origin master
-      - name: Step 6 - Set Last GitHub Tag Env Var
+      - name: Step 5 - 📁 Set Last GitHub Tag Env Var
         run: echo "::set-env name=LAST_GITHUB_TAG::$(git describe --tags $(git rev-list --tags --max-count=1))"
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-      - name: Step 7 - Publish GitHub Release
+      - name: Step 6 - 🚀 Publish GitHub Release
         uses: ncipollo/release-action@v1
         with:
           name: Release ${{ env.LAST_GITHUB_TAG }}
           tag: ${{ env.LAST_GITHUB_TAG }}
           body: "Release body content 1"
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Step 8 - Publish npm package.
+      - name: Step 8 - 🚀🚀 Publish npm package.
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
