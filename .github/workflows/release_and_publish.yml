@@ -29,6 +29,7 @@ jobs:
           git config user.name "🤖 DailyBot"
           git config user.email "ops@dailybot.com"
       - name: Step 6 - Prepare Release
+        id: prepare_release
         run: |
           git status
           git add .
@@ -36,10 +37,11 @@ jobs:
           npm run release
           git push --follow-tags origin master
           export LAST_GITHUB_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))
+          echo $(jobs.build.steps.prepare_release.env)
       - name: Step 7 - Publish GitHub Release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ env.LAST_GITHUB_TAG }}
+          tag: ${{ jobs.build.steps.prepare_release.env.LAST_GITHUB_TAG }}
           body: "Release body content 1"
           token: ${{ secrets.GITHUB_TOKEN }}
         env:
