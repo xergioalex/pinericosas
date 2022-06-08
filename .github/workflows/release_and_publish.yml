@@ -21,24 +21,23 @@ jobs:
           node-version: 16.x
           registry-url: https://registry.npmjs.org/
       - name: Step 2 - Setup application
-        run: npm install
+        run: |
+          git config user.name "🤖 DailyBot"
+          git config user.email "ops@dailybot.com"
+          npm install
       - name: Step 3 - Run Tests
         run: npm run test
       - name: Step 4 - Build application bundle
         run: npm run build
-      - name: Step 5 - Setup git config
-        run: |
-          git config user.name "🤖 DailyBot"
-          git config user.email "ops@dailybot.com"
-      - name: Step 6 - Prepare Release
-        id: prepare_release
+      - name: Step 5 - Prepare Release
         run: |
           git status
           git add .
           git commit -am "[🤖 DailyBot] Minor updates on package versions." || echo "[🤖 DailyBot] No changes to commit"
           npm run release
           git push --follow-tags origin master
-          echo "::set-env name=LAST_GITHUB_TAG::$(git describe --tags $(git rev-list --tags --max-count=1))"
+      - name: Step 6 - Set Last GitHub Tag Env Var
+        run: echo "::set-env name=LAST_GITHUB_TAG::$(git describe --tags $(git rev-list --tags --max-count=1))"
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       - name: Step 7 - Publish GitHub Release
