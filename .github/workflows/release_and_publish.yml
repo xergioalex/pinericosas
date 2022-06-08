@@ -37,6 +37,7 @@ jobs:
           npm run release
           git push --follow-tags origin master
           export LAST_GITHUB_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))
+          echo $LAST_GITHUB_TAG
           echo $(jobs.build.steps.prepare_release.env)
       - name: Step 7 - Publish GitHub Release
         uses: ncipollo/release-action@v1
