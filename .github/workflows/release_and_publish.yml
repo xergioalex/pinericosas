@@ -17,15 +17,6 @@ jobs:
         with:
           node-version: 16.x
           registry-url: https://registry.npmjs.org/
-      - name: Step 1 - ⚙️ Setup application
-        run: |
-          git config user.name "🤖 DailyBot"
-          git config user.email "ops@dailybot.com"
-          npm install
-      - name: Step 2 - 🧪 Run Tests
-        run: npm run test
-      - name: Step 3 - 🛠️ Build application bundle
-        run: npm run build
       - name: Step 4 - 📁 Set GitHub Release Env Vars
         run: |
           bash get_github_release_log.sh
@@ -40,6 +31,15 @@ jobs:
           echo "::set-env name=LAST_GITHUB_TAG::$(git describe --tags $(git rev-list --tags --max-count=1))"
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+      - name: Step 1 - ⚙️ Setup application
+        run: |
+          git config user.name "🤖 DailyBot"
+          git config user.email "ops@dailybot.com"
+          npm install
+      - name: Step 2 - 🧪 Run Tests
+        run: npm run test
+      - name: Step 3 - 🛠️ Build application bundle
+        run: npm run build
       - name: Step 5 -🔄 Prepare Release
         run: |
           git status
