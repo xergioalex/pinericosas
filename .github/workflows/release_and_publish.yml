@@ -34,6 +34,7 @@ jobs:
           command: github-release
           release-type: node
           package-name: pinericosas-xergioalex
+          token: ${{ secrets.GITHUB_TOKEN }}
       # - name: Step 6 - Prepare Release
       #   run: |
       #     git status
