@@ -13,26 +13,27 @@ jobs:
         node: ['16']
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node 16
+      - name: Step 1 - Setup Node 16
         uses: actions/setup-node@v2
         with:
           node-version: 16.x
           registry-url: https://registry.npmjs.org/
-      - name: Setup application
+      - name: Step 2 - Setup application
         run: npm install
-      - name: Run Tests
+      - name: Step 3 - Run Tests
         run: npm run test
-      - name: Build application bundle
+      - name: Step 4 - Build application bundle
         run: npm run build
-      - name: Setup git config
+      - name: Step 5 - Setup git config
         run: |
           git config user.name "Sergio Alexander Florez Galeano"
           git config user.email "xergioalex@gmail.com"
-      - name: Prepare Release
+      - name: Step 6 - Prepare Release
         run: |
+          git status
           npm run release
           git push --follow-tags origin master
-      - name: Publish npm package
+      - name: Step 7 - Publish npm package
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
