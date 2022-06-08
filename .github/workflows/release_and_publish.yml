@@ -39,7 +39,7 @@ jobs:
       - name: Step 7 - Publish GitHub Release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ process.env.LAST_GITHUB_TAG }}
+          tag: ${{ env.LAST_GITHUB_TAG }}
           body: "Release body content 1"
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Step 8 - Publish npm package.
