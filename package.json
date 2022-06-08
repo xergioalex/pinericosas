@@ -16,7 +16,7 @@
   "scripts": {
     "test": "mocha --require ts-node/register test/**.ts --timeout 25000 --colors",
     "test:watch": "mocha -w --watch-extensions ts --require ts-node/register --watch-files src,test test/**.ts --timeout 25000 --colors",
-    "release": "npm version patch -m \"[🤖 DailyBot] New telease to v%s launched 🚀\"",
+    "release": "npm version patch -m \"[🤖 DailyBot] New release to v%s launched 🚀\"",
     "start": "node dist/index.js",
     "dev": "nodemon src/index.ts",
     "build": "webpack --mode production --progress",
