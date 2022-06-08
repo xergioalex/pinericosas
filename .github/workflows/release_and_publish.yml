@@ -35,13 +35,13 @@ jobs:
           git push --follow-tags origin master
       - name: Step 5 - 📁 Set GitHub Release Env Vars
         run: |
-          echo "::set-env name=LAST_GITHUB_TAG::$(git describe --tags $(git rev-list --tags --max-count=1))"
           bash get_github_release_log.sh
           ls -la | grep git_logs
           GITHUB_RELEASE_BODY=$(cat git_logs_output.txt)
           echo "---------------"
           echo $GITHUB_RELEASE_BODY
           echo "::set-env name=GITHUB_RELEASE_BODY::$GITHUB_RELEASE_BODY"
+          echo "::set-env name=LAST_GITHUB_TAG::$(git describe --tags $(git rev-list --tags --max-count=1))"
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       - name: Step 6 - 🚀 Publish GitHub Release
