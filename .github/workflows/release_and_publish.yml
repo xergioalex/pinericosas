@@ -19,6 +19,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: Step 4 - 📁 Set GitHub Release Env Vars
         run: |
+          git pull origin master
           echo "----- GIT LOGS INIT ----"
           git log --pretty=oneline
           echo "----- GIT LOGS END ----"
