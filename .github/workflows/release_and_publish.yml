@@ -33,8 +33,11 @@ jobs:
           git commit -am "[🤖 DailyBot] Minor updates on package versions." || echo "[🤖 DailyBot] No changes to commit"
           npm run release
           git push --follow-tags origin master
-      - name: Step 5 - 📁 Set Last GitHub Tag Env Var
-        run: echo "::set-env name=LAST_GITHUB_TAG::$(git describe --tags $(git rev-list --tags --max-count=1))"
+      - name: Step 5 - 📁 Set GitHub Release Env Vars
+        run: |
+          echo "::set-env name=LAST_GITHUB_TAG::$(git describe --tags $(git rev-list --tags --max-count=1))"
+          bash get_github_release_log.sh
+          echo "::set-env name=GITHUB_RELEASE_BODY::$(cat git_logs_output.txt)"
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       - name: Step 6 - 🚀 Publish GitHub Release
@@ -42,7 +45,7 @@ jobs:
         with:
           name: Release ${{ env.LAST_GITHUB_TAG }}
           tag: ${{ env.LAST_GITHUB_TAG }}
-          body: "Release body content 1"
+          body: "${ env.GITHUB_RELEASE_BODY }"
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Step 8 - 🚀🚀 Publish npm package
         run: npm publish
