@@ -32,8 +32,6 @@ jobs:
           git config user.email "ops@dailybot.com"
       - name: Step 6 - Prepare Release
         id: prepare_release
-        with:
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
         run: |
           git status
           git add .
@@ -41,6 +39,8 @@ jobs:
           npm run release
           git push --follow-tags origin master
           echo "::set-env name=LAST_GITHUB_TAG::$(git describe --tags $(git rev-list --tags --max-count=1))"
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       - name: Step 7 - Publish GitHub Release
         uses: ncipollo/release-action@v1
         with:
