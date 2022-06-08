@@ -11,8 +11,6 @@ jobs:
     strategy:
       matrix:
         node: ['16']
-    outputs:
-      last_github_tag: ${{ steps.prepare_release.outputs.last_github_tag }}
     steps:
       - uses: actions/checkout@v2
       - name: Step 1 - Setup Node 16
