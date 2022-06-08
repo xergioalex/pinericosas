@@ -19,6 +19,9 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: Step 4 - 📁 Set GitHub Release Env Vars
         run: |
+          echo "----- GIT LOGS INIT ----"
+          git log --pretty=oneline
+          echo "----- GIT LOGS END ----"
           bash get_github_release_log.sh
           ls -la | grep git_logs
           echo "###### GIT LOGS INIT #####"
