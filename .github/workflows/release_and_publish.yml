@@ -45,8 +45,6 @@ jobs:
           tag: ${{ env.LAST_GITHUB_TAG }}
           body: "Release body content 1"
           token: ${{ secrets.GITHUB_TOKEN }}
-        env:
-          NODE_AUTH_TOKEN: ${{ process.env.LAST_GITHUB_TAG }}
       - name: Step 8 - Publish npm package.
         run: npm publish
         env:
