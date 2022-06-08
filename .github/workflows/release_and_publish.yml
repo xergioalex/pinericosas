@@ -37,6 +37,7 @@ jobs:
         run: |
           echo "::set-env name=LAST_GITHUB_TAG::$(git describe --tags $(git rev-list --tags --max-count=1))"
           bash get_github_release_log.sh
+          ls -la | grep git_logs
           GITHUB_RELEASE_BODY=$(cat git_logs_output.txt)
           echo "---------------"
           echo $GITHUB_RELEASE_BODY
