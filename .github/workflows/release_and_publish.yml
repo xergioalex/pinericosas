@@ -33,13 +33,13 @@ jobs:
           echo "----- GIT LOGS INIT ----"
           git log --pretty=oneline
           echo "----- GIT LOGS END ----"
+          bash get_github_release_log.sh
           echo "##### GIT LOGS INIT 1 #####"
           cat git_logs.txt
           echo "##### GIT LOGS END 1 #####"
           echo "##### GIT LOGS INIT 2 #####"
           cat git_logs_output.txt
           echo "##### GIT LOGS END 2 #####"
-          bash get_github_release_log.sh
           GITHUB_RELEASE_BODY=$(cat git_logs_output.txt)
           echo "::set-env name=GITHUB_RELEASE_BODY::$GITHUB_RELEASE_BODY"
         env:
