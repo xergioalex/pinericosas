@@ -37,7 +37,10 @@ jobs:
         run: |
           echo "::set-env name=LAST_GITHUB_TAG::$(git describe --tags $(git rev-list --tags --max-count=1))"
           bash get_github_release_log.sh
-          echo "::set-env name=GITHUB_RELEASE_BODY::$(cat git_logs_output.txt)"
+          GITHUB_RELEASE_BODY=$(cat git_logs_output.txt)
+          echo "---------------"
+          echo $GITHUB_RELEASE_BODY
+          echo "::set-env name=GITHUB_RELEASE_BODY::$GITHUB_RELEASE_BODY"
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       - name: Step 6 - 🚀 Publish GitHub Release
