@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.5.46 (2022-06-08)
+
 ### [0.5.45](https://github.com/rockalabs/universal-emoji-parser/compare/v0.4.12...v0.5.45) (2022-06-07)
 
 ### [0.5.28](https://github.com/rockalabs/universal-emoji-parser/compare/v0.5.27...v0.5.28) (2020-08-05)
