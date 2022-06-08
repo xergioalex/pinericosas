@@ -30,6 +30,9 @@ jobs:
         run: |
           bash get_github_release_log.sh
           ls -la | grep git_logs
+          echo "###### GIT LOGS INIT #####"
+          cat git_logs.txt
+          echo "###### GIT LOGS END #####"
           GITHUB_RELEASE_BODY=$(cat git_logs_output.txt)
           echo "---------------"
           echo $GITHUB_RELEASE_BODY
