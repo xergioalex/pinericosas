@@ -11,6 +11,8 @@ jobs:
     strategy:
       matrix:
         node: ['16']
+    outputs:
+      last_github_tag: ${{ steps.prepare_release.outputs.last_github_tag }}
     steps:
       - uses: actions/checkout@v2
       - name: Step 1 - Setup Node 16
@@ -36,13 +38,19 @@ jobs:
           git commit -am "[🤖 DailyBot] Minor updates on package versions." || echo "[🤖 DailyBot] No changes to commit"
           npm run release
           git push --follow-tags origin master
-          export LAST_GITHUB_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))
-          echo $LAST_GITHUB_TAG
-          echo $(jobs.build.steps.prepare_release.env)
+          echo "::set-output name=last_github_tag::$(git describe --tags $(git rev-list --tags --max-count=1))"
+
+  release:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ['16']
+    needs: build
+    steps:
       - name: Step 7 - Publish GitHub Release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ env.LAST_GITHUB_TAG }}
+          tag: ${{ needs.build.outputs.last_github_tag }}
           body: "Release body content 1"
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Step 8 - Publish npm package.
