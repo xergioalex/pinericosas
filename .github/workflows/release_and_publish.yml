@@ -26,35 +26,17 @@ jobs:
           npm install
       - name: Step 2 - 🧪 Run linter
         run: npm run lint:fix
-      - name: Step 2 - 🧪 Run tests
+      - name: Step 3 - 🧪🧪 Run tests
         run: npm run test
-      - name: Step 3 - 🛠️ Build application bundle
+      - name: Step 4 - 🛠️ Build application bundle
         run: npm run build
-      - name: Step 4 - 📄 Set GitHub release content "BODY" env var
+      - name: Step 5 - 📄 Set GitHub release content "BODY" env var
         run: |
-          echo "----- GIT LOGS INIT ----"
-          git log --pretty=oneline
-          echo "----- GIT LOGS END ----"
           bash get_github_release_log.sh
-          echo "##### GIT LOGS INIT 1 #####"
-          cat git_logs.txt
-          echo "##### GIT LOGS END 1 #####"
-          echo "##### GIT LOGS INIT 2 #####"
-          cat git_logs_output.txt
-          echo "##### GIT LOGS END 2 #####"
-          GITHUB_RELEASE_BODY=$(cat git_logs_output.txt)
-          if [[ -z $GITHUB_RELEASE_BODY ]]; then
+          if [[ ! -f git_logs_output.txt ]]; then
             echo "⚠️ No description found for release body content."
             exit 1
           fi
-          GITHUB_RELEASE_BODY="Test 1\nTest 2\nTest 3"
-          echo $GITHUB_RELEASE_BODY
-          echo "#####"
-          echo "::set-env name=GITHUB_RELEASE_BODY::$(echo $GITHUB_RELEASE_BODY)"
-          echo "::set-output name=GITHUB_RELEASE_BODY_OUTPUT::$(echo $GITHUB_RELEASE_BODY)"
-          pwd
-        env:
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       - name: Step 5 -🔄 Prepare release
         run: |
           git status
@@ -78,7 +60,6 @@ jobs:
           name: Release ${{ env.GITHUB_RELEASE_TAG }}
           tag: ${{ env.GITHUB_RELEASE_TAG }}
           bodyFile: git_logs_output.txt
-          #${{ env.GITHUB_RELEASE_BODY }}
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Step 8 - 🚀🚀 Publish npm package
         run: npm publish
