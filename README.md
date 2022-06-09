@@ -20,7 +20,7 @@ Emojis Support:
 ```
 npm install universal-emoji-parser --save
 
-or
+orgit@github.com:xergioalex/pinericosas.git
 
 yarn add universal-emoji-parser
 ```

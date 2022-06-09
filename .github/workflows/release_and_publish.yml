@@ -41,6 +41,10 @@ jobs:
           cat git_logs_output.txt
           echo "##### GIT LOGS END 2 #####"
           GITHUB_RELEASE_BODY=$(cat git_logs_output.txt)
+          if [[ -z $GITHUB_RELEASE_BODY ]]; then
+            echo "⚠️ No description found for release body content."
+            exit 1
+          fi
           echo $GITHUB_RELEASE_BODY
           echo "::set-env name=GITHUB_RELEASE_BODY::$GITHUB_RELEASE_BODY"
         env:
@@ -51,9 +55,14 @@ jobs:
           git add .
           git commit -am "[🤖 DailyBot] Minor updates on package versions." || echo "[🤖 DailyBot] No changes to commit"
           npm run release
+          GITHUB_RELEASE_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))
+          if [[ -z $GITHUB_RELEASE_TAG ]]; then
+            echo "⚠️ No release tag found."
+            exit 1
+          fi
           git push --follow-tags origin master
       - name: Step 6 - 🏷️ Set GitHub release "TAG" env vars
-        run: echo "::set-env name=GITHUB_RELEASE_TAG::$(git describe --tags $(git rev-list --tags --max-count=1))"
+        run: echo "::set-env name=GITHUB_RELEASE_TAG::$GITHUB_RELEASE_TAG"
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       - name: Step 7 - 🚀 Publish GitHub release
