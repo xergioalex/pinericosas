@@ -1,4 +1,4 @@
-# Universal emoji parser
+# Universal emoji parser.
 
 This tool allow parse unicode and emoji codes to html images using [emojilib](https://github.com/muan/emojilib) && [Twemoji](https://github.com/twitter/twemoji).
 
