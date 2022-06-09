@@ -55,14 +55,15 @@ jobs:
           git add .
           git commit -am "[🤖 DailyBot] Minor updates on package versions." || echo "[🤖 DailyBot] No changes to commit"
           npm run release
-          GITHUB_RELEASE_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))
+          git push --follow-tags origin master
+      - name: Step 6 - 🏷️ Set GitHub release "TAG" env vars
+        run: |
+          GITHUB_RELEASE_TAG==$($(git describe --tags $(git rev-list --tags --max-count=1))
           if [[ -z $GITHUB_RELEASE_TAG ]]; then
             echo "⚠️ No release tag found."
             exit 1
-          fi
-          git push --follow-tags origin master
-      - name: Step 6 - 🏷️ Set GitHub release "TAG" env vars
-        run: echo "::set-env name=GITHUB_RELEASE_TAG::$GITHUB_RELEASE_TAG"
+          fi 
+          echo "::set-env name=GITHUB_RELEASE_TAG::$GITHUB_RELEASE_TAG"
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       - name: Step 7 - 🚀 Publish GitHub release
