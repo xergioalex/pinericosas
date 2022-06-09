@@ -49,6 +49,7 @@ jobs:
           echo $GITHUB_RELEASE_BODY
           echo "#####"
           echo "::set-env name=GITHUB_RELEASE_BODY::$(echo $GITHUB_RELEASE_BODY)"
+          echo "::set-output name=GITHUB_RELEASE_BODY_OUTPUT::$(echo $GITHUB_RELEASE_BODY)"
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       - name: Step 5 -🔄 Prepare release
