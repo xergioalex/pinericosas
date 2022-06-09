@@ -46,6 +46,7 @@ jobs:
             exit 1
           fi
           echo $GITHUB_RELEASE_BODY
+          echo "#####"
           echo "::set-env name=GITHUB_RELEASE_BODY::$GITHUB_RELEASE_BODY"
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
@@ -71,7 +72,11 @@ jobs:
         with:
           name: Release ${{ env.GITHUB_RELEASE_TAG }}
           tag: ${{ env.GITHUB_RELEASE_TAG }}
-          body: "${{ env.GITHUB_RELEASE_BODY }}"
+          body: |
+            Text 1
+            Text 2
+            Text 3
+            "${{ env.GITHUB_RELEASE_BODY }}"
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Step 8 - 🚀🚀 Publish npm package
         run: npm publish
