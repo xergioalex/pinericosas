@@ -12,7 +12,7 @@ describe('Test emoji parser', () => {
     // (2) Smile with smiling eyes 😄
     text = '😄'
     result = uEmojiParser.parse(text)
-    expect(result).to.be.equal('<img claemoji" draggable="false" alt="😄" src="https://twemoji.maxcdn.com/v/14.0.2/72x72/1f604.png"/>')
+    expect(result).to.be.equal('<img class="emoji" draggable="false" alt="😄" src="https://twemoji.maxcdn.com/v/14.0.2/72x72/1f604.png"/>')
   })
 
   it('should parse emojis from emoji code', () => {
