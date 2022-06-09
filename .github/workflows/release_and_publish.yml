@@ -76,7 +76,7 @@ jobs:
             Text 1
             Text 2
             Text 3
-            echo ${{ env.GITHUB_RELEASE_BODY }}
+            ${{ echo env.GITHUB_RELEASE_BODY }}
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Step 8 - 🚀🚀 Publish npm package
         run: npm publish
