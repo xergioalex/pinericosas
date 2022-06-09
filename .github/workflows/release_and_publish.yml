@@ -24,6 +24,8 @@ jobs:
           git config user.name "🤖 DailyBot"
           git config user.email "ops@dailybot.com"
           npm install
+      - name: Step 2 - 🧪 Run linter
+        run: npm run lint:fix
       - name: Step 2 - 🧪 Run tests
         run: npm run test
       - name: Step 3 - 🛠️ Build application bundle
@@ -45,7 +47,7 @@ jobs:
             echo "⚠️ No description found for release body content."
             exit 1
           fi
-          GITHUB_RELEASE_BODY="Test 1\nTest 2\nTest 3" 
+          GITHUB_RELEASE_BODY="Test 1\nTest 2\nTest 3"
           echo $GITHUB_RELEASE_BODY
           echo "#####"
           echo "::set-env name=GITHUB_RELEASE_BODY::$(echo $GITHUB_RELEASE_BODY)"
@@ -66,7 +68,7 @@ jobs:
           if [[ -z $GITHUB_RELEASE_TAG ]]; then
             echo "⚠️ No release tag found."
             exit 1
-          fi 
+          fi
           echo "::set-env name=GITHUB_RELEASE_TAG::$GITHUB_RELEASE_TAG"
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
