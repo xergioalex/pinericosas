@@ -64,7 +64,7 @@ jobs:
             echo "⚠️ No release tag found."
             exit 1
           fi 
-          echo "::set-env name=GITHUB_RELEASE_TAG::$GITHUB_RELEASE_TAG"
+          echo "::set-env name=GITHUB_RELEASE_TAG::${GITHUB_RELEASE_TAG}"
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       - name: Step 7 - 🚀 Publish GitHub release
@@ -76,7 +76,7 @@ jobs:
             Text 1
             Text 2
             Text 3
-            ${{ echo env.GITHUB_RELEASE_BODY }}
+            ${{ env.GITHUB_RELEASE_BODY }}
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Step 8 - 🚀🚀 Publish npm package
         run: npm publish
