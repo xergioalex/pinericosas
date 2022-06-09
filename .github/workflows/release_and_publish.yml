@@ -45,6 +45,7 @@ jobs:
             echo "⚠️ No description found for release body content."
             exit 1
           fi
+          GITHUB_RELEASE_BODY="Test 1\nTest 2\nTest 3" 
           echo $GITHUB_RELEASE_BODY
           echo "#####"
           echo "::set-env name=GITHUB_RELEASE_BODY::$(echo $GITHUB_RELEASE_BODY)"
