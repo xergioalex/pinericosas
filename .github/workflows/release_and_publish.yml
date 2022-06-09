@@ -1,7 +1,9 @@
-name: release-and-publish
+name: Release and Publish
 
 on:
   push:
+    branches:
+      - master
   workflow_dispatch:
   repository_dispatch:
 
