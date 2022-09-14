@@ -64,7 +64,7 @@ describe('Test search text highlight', () => {
   })
 
   it('should throw error with not the right type parameter', () => {
-    let text: any = 42
+    let text: any = 42  // eslint-disable-line
     expect(() => {
       searchTextHL.highlight(text, '')
     }).to.throw(Error)
@@ -75,7 +75,7 @@ describe('Test search text highlight', () => {
     }).to.throw(Error)
 
     text = 'This is a simple but an amazing tool for text highlight 😎.'
-    let query: any = 5
+    let query: any = 5  // eslint-disable-line
     expect(() => {
       searchTextHL.highlight(text, query)
     }).to.throw(Error)
@@ -86,7 +86,7 @@ describe('Test search text highlight', () => {
     }).to
 
     query = 'amazing'
-    let options: any = true
+    let options: any = true  // eslint-disable-line
     expect(() => {
       searchTextHL.highlight(text, query, options)
     }).to
