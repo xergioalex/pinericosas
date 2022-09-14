@@ -6,22 +6,21 @@ export interface Class<T> {
   new(...args: any): T  // eslint-disable-line
 }
 
-export interface EmojiType {
-  name: string,
-  slug: string,
-  group: string,
-  emoji_version: string,
-  unicode_version: string,
-  skin_tone_support: boolean,
-  char: string,
-  keywords: Array<string>
+export interface OptionsType {
+  htmlTag?: string
+  hlClass?: string
+  matchAll?: boolean
+  caseSensitive?: boolean
 }
 
-export interface EmojiLibJsonType {
-  [key: string]: EmojiType
+export interface UtilsType {
+  validate: {
+    highlight(text: string, query: string, option?: OptionsType): void
+    options(options: OptionsType): void
+  }
+  getOptions(options: OptionsType): OptionsType
 }
 
-export interface UEmojiParserType {
-  getEmojiObjectByCode: (emojiCode: string) => EmojiType | undefined
-  parse: (text: string) => string
+export interface SearchTextHLType {
+  highlight: (text: string, query: string, options?: OptionsType) => string
 }

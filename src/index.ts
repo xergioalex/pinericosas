@@ -1,47 +1,28 @@
-import twemoji from 'twemoji'
-import { EmojiLibJsonType, EmojiType, UEmojiParserType } from './lib/type'
-import emojiLibJson from './lib/emoji-lib.json'
+import { OptionsType, SearchTextHLType } from './lib/type'
+import Utils from './lib/utils'
 
 
 /**
- * Parse text with emoji support
+ * Allow find a string or substring from a text and
+ * highlight it with html wrapper and unicode support.
  * @return {string}
  */
-const uEmojiParser: UEmojiParserType = {
-  getEmojiObjectByCode(emojiCode: string): EmojiType | undefined {
-    const emojiLibJsonData: EmojiLibJsonType = emojiLibJson
-    emojiCode = emojiCode.replace(/:/g, '')
-    if (emojiLibJsonData[emojiCode] && typeof emojiLibJsonData[emojiCode] === 'object' && emojiLibJsonData[emojiCode].char) {
-      return emojiLibJsonData[emojiCode]
-    } else {
-      const emojiKey: string | undefined = Object.keys(emojiLibJsonData).find(
-        (emojiKey: string): boolean => emojiLibJsonData[emojiKey].keywords.includes(emojiCode)
-      )
-      if (emojiKey) {
-        return emojiLibJsonData[emojiKey]
-      }
-    }
-    return undefined
-  },
-  parse(text: string): string {
-    if (typeof text !== 'string') {
-      throw new Error('The text parameter should be a string.')
+const searchTextHL: SearchTextHLType = {
+  highlight(text: string = '', query: string = '', options: OptionsType = {}): string {
+    Utils.validate.highlight(text, query, options)
+
+    options = Utils.getOptions(options)
+    if (!query) {
+      return text
     }
 
-    const emojisRegExp = /:(\w+):/g
-    const emojisList = text.match(emojisRegExp)
-    if (emojisList) {
-      emojisList.forEach((emojiCode) => {
-        const emoji: EmojiType = this.getEmojiObjectByCode(emojiCode)
-        if (emoji) {
-          const regEx = new RegExp(emojiCode)
-          text = text.replace(regEx, emoji.char)
-        }
-      })
-    }
-    return twemoji.parse(text)
+    let modifiers = options.matchAll? 'g': ''
+    modifiers += options.caseSensitive? '': 'i'
+    return text.replace(new RegExp(query, modifiers), match => {
+        return `<${options.htmlTag} class="${options.hlClass}">${match}</${options.htmlTag}>`
+    })
   }
 }
 
-export default uEmojiParser
-module.exports = uEmojiParser
+export default searchTextHL
+module.exports = searchTextHL

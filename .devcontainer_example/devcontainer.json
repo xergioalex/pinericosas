@@ -1,13 +1,13 @@
 // If you want to run as a non-root user in the container, see .devcontainer/docker-compose.yml.
 {
-	"name": "Universal Emoji Parser",
+	"name": "Search Text Highlight",
 	"dockerComposeFile": "../docker/local/docker-compose.yaml",
-	"service": "uemojiparser",
+	"service": "searchtexthl",
 	"workspaceFolder": "/app",
 	"settings": {
 		"terminal.integrated.defaultProfile.linux": "bash"
   	},
-	"runServices": ["uemojiparser"],
+	"runServices": ["searchtexthl"],
 	"extensions": [
 		"VisualStudioExptTeam.vscodeintellicode",
 		"swyphcosmo.spellchecker",

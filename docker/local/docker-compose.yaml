@@ -1,18 +1,16 @@
 version: '3.2'
 
 services:
-  uemojiparser: &uemojiparser
+  searchtexthl: &searchtexthl
     user: "${UID}"
     build:
       context: .
-      dockerfile: ./uEmojiParser/Dockerfile
+      dockerfile: ./searchTextHL/Dockerfile
     working_dir: /app
     volumes:
       - ../..:/app
-      - ~/.ssh:/root/.ssh
-      - ~/.gitconfig:/root/.gitconfig
     env_file:
-      - uEmojiParser/.env
+      - searchTextHL/.env
     command:
       - /bin/sh
       - -c
