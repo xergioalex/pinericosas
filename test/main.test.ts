@@ -63,75 +63,73 @@ describe('Test search text highlight', () => {
     expect(result).to.be.equal('This is a simple but an amazing tool for text highlight 😎.')
   })
 
-  // it('should throw error with not the right type parameter', () => {
-  //   let text = 42
-  //   assert.throws(() => {
-  //     searchTextHL.highlight(text)
-  //   }, Error)
+  it('should throw error with not the right type parameter', () => {
+    let text: any = 42
+    expect(() => {
+      searchTextHL.highlight(text, '')
+    }).to.throw(Error)
 
-  //   text = true
-  //   assert.throws(() => {
-  //     searchTextHL.highlight(text)
-  //   }, Error)
+    text = true
+    expect(() => {
+      searchTextHL.highlight(text, '')
+    }).to.throw(Error)
 
-  //   text = 'This is a simple but an amazing tool for text highlight 😎.'
-  //   let query = 5
-  //   assert.throws(() => {
-  //     searchTextHL.highlight(text, query)
-  //   }, Error)
+    text = 'This is a simple but an amazing tool for text highlight 😎.'
+    let query: any = 5
+    expect(() => {
+      searchTextHL.highlight(text, query)
+    }).to.throw(Error)
 
-  //   query = true
-  //   assert.throws(() => {
-  //     searchTextHL.highlight(text, query)
-  //   }, Error)
+    query = true
+    expect(() => {
+      searchTextHL.highlight(text, query)
+    }).to
 
-  //   query = 'amazing'
+    query = 'amazing'
+    let options: any = true
+    expect(() => {
+      searchTextHL.highlight(text, query, options)
+    }).to
 
-  //   let options = true
-  //   assert.throws(() => {
-  //     searchTextHL.highlight(text, query, options)
-  //   }, Error)
+    options = { htmlTag: 563 }
+    expect(() => {
+      searchTextHL.highlight(text, query, options)
+    }).to
 
-  //   options = { htmlTag: 563 }
-  //   assert.throws(() => {
-  //     searchTextHL.highlight(text, query, options)
-  //   }, Error)
+    options = { htmlTag: false }
+    expect(() => {
+      searchTextHL.highlight(text, query, options)
+    }).to
 
-  //   options = { htmlTag: false }
-  //   assert.throws(() => {
-  //     searchTextHL.highlight(text, query, options)
-  //   }, Error)
+    options = { hlClass: 50.0 }
+    expect(() => {
+      searchTextHL.highlight(text, query, options)
+    }).to
 
-  //   options = { hlClass: 50.0 }
-  //   assert.throws(() => {
-  //     searchTextHL.highlight(text, query, options)
-  //   }, Error)
+    options = { hlClass: true }
+    expect(() => {
+      searchTextHL.highlight(text, query, options)
+    }).to
 
-  //   options = { hlClass: true }
-  //   assert.throws(() => {
-  //     searchTextHL.highlight(text, query, options)
-  //   }, Error)
+    options = { matchAll: 'true' }
+    expect(() => {
+      searchTextHL.highlight(text, query, options)
+    }).to
 
-  //   options = { matchAll: 'true' }
-  //   assert.throws(() => {
-  //     searchTextHL.highlight(text, query, options)
-  //   }, Error)
+    options = { matchAll: 1 }
+    expect(() => {
+      searchTextHL.highlight(text, query, options)
+    }).to
 
-  //   options = { matchAll: 1 }
-  //   assert.throws(() => {
-  //     searchTextHL.highlight(text, query, options)
-  //   }, Error)
+    options = { caseSensitive: 42 }
+    expect(() => {
+      searchTextHL.highlight(text, query, options)
+    }).to
 
-  //   options = { caseSensitive: 42 }
-  //   assert.throws(() => {
-  //     searchTextHL.highlight(text, query, options)
-  //   }, Error)
-
-  //   options = { caseSensitive: 'false' }
-  //   assert.throws(() => {
-  //     searchTextHL.highlight(text, query, options)
-  //   }, Error)
-
-  // })
+    options = { caseSensitive: 'false' }
+    expect(() => {
+      searchTextHL.highlight(text, query, options)
+    }).to
+  })
 
 })
