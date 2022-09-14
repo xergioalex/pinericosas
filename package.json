@@ -1,6 +1,6 @@
 {
   "name": "pinericosas-xergioalex",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "This tool allow find a string or substring from a text and highlight it with html wrapper with unicode support.",
   "keywords": [
     "search",
